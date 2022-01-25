@@ -8,14 +8,15 @@ public class HRSHotelOperations {
 
             //creating a new hash map to store hotel data.
             HashMap<String, Integer> hotels = new HashMap<String, Integer>();
-            if (hotelName!=null)
-             hotels.put(hotelName, rate);
+            if (hotelName!=null) {
+                hotels.put(hotelName, rate);
+                if (hotels.containsKey(hotelName))
+                    return true;
+            }
             else
-                throw new HotelAdditionException("Hotel not added");
-            if (hotels.containsKey(hotelName))
-                return true;
-            else
-                return false;
-
+                {
+                    throw new HotelAdditionException("Hotel not added");
+                }
+        return false;
     }
 }
